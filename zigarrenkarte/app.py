@@ -52,42 +52,24 @@ def index():
         draw.rectangle([(20, 115), (card_width - 20, 190)], fill=(255, 255, 255), outline=sortenrahmen, width=4)
         draw.text((card_width // 2 - 160, 130), sorte, fill="black", font=font_medium)
 
-        x, y = 40, 210
-        draw.text((x, y), f"Format:", fill=text_black, font=font_medium)
-        y += 40
-        draw.text((x, y), f"{format_} – {laenge} mm / {ringmass} Ringmaß", fill=text_black, font=font_small)
-        y += 60
+        x_text, y_text = 40, 210
+        lines = [
+            ("Format:", f"{format_} – {ringmass} × {laenge} mm"),
+            ("Stärke:", "★" * staerke + "☆" * (5 - staerke)),
+            ("Rauchdauer:", f"{dauer} Minuten"),
+            ("Deckblatt:", deckblatt),
+            ("Umblatt:", umblatt),
+            ("Einlage:", einlage),
+            ("Charakter & Besonderheiten:", beschreibung),
+        ]
 
-        draw.text((x, y), "Stärke:", fill=text_black, font=font_medium)
-        y += 40
-        draw.text((x, y), "★" * staerke + "☆" * (5 - staerke), fill=text_black, font=font_small)
-        y += 60
+        for title, value in lines:
+            draw.text((x_text, y_text), title, fill="black", font=font_medium)
+            y_text += 40
+            draw.text((x_text, y_text), value, fill="black", font=font_small)
+            y_text += 50
 
-        draw.text((x, y), "Rauchdauer:", fill=text_black, font=font_medium)
-        y += 40
-        draw.text((x, y), f"{dauer} Minuten", fill=text_black, font=font_small)
-        y += 60
-
-        draw.text((x, y), "Herstellung:", fill=text_black, font=font_medium)
-        y += 40
-        draw.text((x, y), f"Deckblatt: {deckblatt}", fill=text_black, font=font_small)
-        y += 35
-        draw.text((x, y), f"Umblatt: {umblatt}", fill=text_black, font=font_small)
-        y += 35
-        draw.text((x, y), f"Einlage: {einlage}", fill=text_black, font=font_small)
-        y += 60
-
-        draw.text((x, y), "Charakter & Besonderheiten:", fill=text_black, font=font_medium)
-        y += 40
-        lines = beschreibung.split("\n")
-        for line in lines:
-            draw.text((x, y), line, fill=text_black, font=font_small)
-            y += 35
-
-        if cigar_img:
-            cigar_img = cigar_img.resize((200, 800))
-            img.paste(cigar_img, (card_width - 220, 250), cigar_img)
-
+        img.paste(cigar_img.resize((250, 700)), (card_width - 290, 300))
         img.save(path)
         return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 

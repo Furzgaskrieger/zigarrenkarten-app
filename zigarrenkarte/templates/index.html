@@ -1,25 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Zigarrenkarte erstellen</title>
+    <meta charset="utf-8">
+    <title>Zigarrenkarte</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <h1>Zigarrenkarte erstellen</h1>
     <form method="post" enctype="multipart/form-data">
-        <label>Marke:</label><input name="marke"><br>
-        <label>Sorte:</label><input name="sorte"><br>
-        <label>Format:</label><input name="format"><br>
-        <label>Länge (mm):</label><input name="laenge"><br>
-        <label>Ringmaß:</label><input name="ringmass"><br>
-        <label>Stärke (1–5):</label><input type="number" name="staerke" min="1" max="5"><br>
-        <label>Deckblatt:</label><input name="deckblatt"><br>
-        <label>Umblatt:</label><input name="umblatt"><br>
-        <label>Einlage:</label><input name="einlage"><br>
-        <label>Rauchdauer (Minuten):</label><input name="dauer"><br>
-        <label>Charakter & Besonderheiten:</label><textarea name="beschreibung" rows="5"></textarea><br>
-        <label>Zigarrenbild:</label><input type="file" name="bild"><br>
-        <button type="submit">Karte erzeugen</button>
+        Marke: <input type="text" name="marke"><br>
+        Sorte: <input type="text" name="sorte"><br>
+        Format: <input type="text" name="format"><br>
+        Ringmaß: <input type="text" name="ringmass"><br>
+        Länge (mm): <input type="text" name="laenge"><br>
+        Stärke:<br>
+        <select name="staerke">
+            <option value="1">★☆☆☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="4">★★★★☆</option>
+            <option value="5">★★★★★</option>
+        </select><br>
+        Rauchdauer: <input type="text" name="dauer"><br>
+        Deckblatt: <input type="text" name="deckblatt"><br>
+        Umblatt: <input type="text" name="umblatt"><br>
+        Einlage: <input type="text" name="einlage"><br>
+        Charakter & Besonderheiten:<br>
+        <textarea name="beschreibung" rows="4" cols="50"></textarea><br>
+        Bild hochladen: <input type="file" name="bild"><br>
+        <input type="submit" value="Karte erzeugen">
     </form>
 </body>
 </html>
