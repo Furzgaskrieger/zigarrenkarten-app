@@ -1,0 +1,1 @@
+def load_cigar_image(path): return None
