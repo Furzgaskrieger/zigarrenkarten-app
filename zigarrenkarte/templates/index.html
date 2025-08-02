@@ -1,1 +1,25 @@
-<!-- Aktualisiertes HTML-Formular -->
+<!doctype html>
+<html>
+<head>
+    <title>Zigarrenkarte erstellen</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Zigarrenkarte erstellen</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label>Marke:</label><input name="marke"><br>
+        <label>Sorte:</label><input name="sorte"><br>
+        <label>Format:</label><input name="format"><br>
+        <label>Länge (mm):</label><input name="laenge"><br>
+        <label>Ringmaß:</label><input name="ringmass"><br>
+        <label>Stärke (1–5):</label><input type="number" name="staerke" min="1" max="5"><br>
+        <label>Deckblatt:</label><input name="deckblatt"><br>
+        <label>Umblatt:</label><input name="umblatt"><br>
+        <label>Einlage:</label><input name="einlage"><br>
+        <label>Rauchdauer (Minuten):</label><input name="dauer"><br>
+        <label>Charakter & Besonderheiten:</label><textarea name="beschreibung" rows="5"></textarea><br>
+        <label>Zigarrenbild:</label><input type="file" name="bild"><br>
+        <button type="submit">Karte erzeugen</button>
+    </form>
+</body>
+</html>
