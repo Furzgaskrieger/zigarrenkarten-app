@@ -2,25 +2,61 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zigarrenkarte erstellen</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Zigarrenkarte erstellen</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <label>Marke:</label><input type="text" name="marke">
-        <label>Sorte:</label><input type="text" name="sorte">
-        <label>Format:</label><input type="text" name="format">
-        <label>Ringmaß:</label><input type="text" name="ringmass">
-        <label>Länge (mm):</label><input type="text" name="laenge">
-        <label>Stärke:</label><input type="text" name="staerke">
-        <label>Rauchdauer:</label><input type="text" name="dauer">
-        <label>Deckblatt (Herkunft):</label><input type="text" name="deckblatt">
-        <label>Umblatt (Herkunft):</label><input type="text" name="umblatt">
-        <label>Einlage (Herkunft):</label><input type="text" name="einlage">
-        <label>Charakter & Besonderheiten:</label><textarea name="beschreibung"></textarea>
-        <label>Bild hochladen:</label><input type="file" name="bild">
-        <button type="submit">Karte erzeugen</button>
-    </form>
+    <div class="container">
+        <h1>Zigarrenkarte erstellen</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="marke">Marke:</label>
+            <input type="text" id="marke" name="marke" required>
+
+            <label for="sorte">Sorte:</label>
+            <input type="text" id="sorte" name="sorte" required>
+
+            <label for="format">Format:</label>
+            <input type="text" id="format" name="format">
+
+            <label for="ringmass">Ringmaß:</label>
+            <input type="text" id="ringmass" name="ringmass">
+
+            <label for="laenge">Länge (mm):</label>
+            <input type="text" id="laenge" name="laenge">
+
+            <label for="staerke">Stärke:</label>
+            <select id="staerke" name="staerke">
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
+            </select>
+
+            <label for="dauer">Rauchdauer (Min.):</label>
+            <input type="text" id="dauer" name="dauer">
+
+            <fieldset>
+                <legend>Herstellung:</legend>
+                <label for="deckblatt_herkunft">Deckblatt:</label>
+                <input type="text" id="deckblatt_herkunft" name="deckblatt_herkunft">
+
+                <label for="umblatt_herkunft">Umblatt:</label>
+                <input type="text" id="umblatt_herkunft" name="umblatt_herkunft">
+
+                <label for="einlage_herkunft">Einlage:</label>
+                <input type="text" id="einlage_herkunft" name="einlage_herkunft">
+            </fieldset>
+
+            <label for="beschreibung">Charakter & Besonderheiten (max. 400 Zeichen):</label>
+            <textarea id="beschreibung" name="beschreibung" rows="6" maxlength="400"></textarea>
+
+            <label for="bild">Bild hochladen:</label>
+            <input type="file" id="bild" name="bild" accept="image/*">
+
+            <button type="submit">Karte erzeugen</button>
+        </form>
+    </div>
 </body>
 </html>
